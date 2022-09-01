@@ -1,6 +1,6 @@
 {
     'name': 'Hospital management',
-    'version': '15.0.0.1',
+    'version': '15.0.1.0.2',
     'summary': 'Hospital Management',
     'description': """Odoo 15 Development Tutorials""",
     'category': 'Tutorials',
@@ -8,10 +8,12 @@
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
+        'data/data.xml',
         'views/hospital_doctor_views.xml',
-        'views/hospital_department_views.xml'
+        'views/patient_views.xml',
+        'views/appointment_view.xml',
     ],
-    'demo': ['Department',],
+    'demo': [],
     'installable': True,
     'application': True,
 }
