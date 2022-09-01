@@ -1,0 +1,57 @@
+<odoo>
+
+    <record id="view_department_tree" model="ir.ui.view">
+        <field name="name">department.doctor.tree</field>
+        <field name="model">department.doctor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="department"/>
+                <field name="manger" />
+               <!-- <field name="doctor_id" />-->
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_department_from" model="ir.ui.view">
+        <field name="name">department.doctor.form</field>
+        <field name="model">department.doctor</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                        <field name="department"/>
+                        <field name="manger" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+     <record id="view_department_search" model="ir.ui.view">
+        <field name="name">department.doctor.search</field>
+        <field name="model">department.doctor</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="department"/>
+                <field name="manger" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hospital_department" model="ir.actions.act_window">
+        <field name="name">Department Doctor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">department.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_hospital_main_menu"
+              name="Hospital"
+              sequence="10"/>
+
+    <menuitem id="menu_department_doctor"
+              name="Department Doctors"
+              action='action_hospital_department'
+              parent="menu_hospital_main_menu"
+              sequence="11"/>
+</odoo>
+

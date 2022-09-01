@@ -1,0 +1,74 @@
+<odoo>
+
+    <record id="view_doctor_tree" model="ir.ui.view">
+        <field name="name">hospital.doctor.tree</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="department_id" />
+                <field name="gender" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_doctor_from" model="ir.ui.view">
+        <field name="name">hospital.doctor.form</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                            <group>
+                                    <field name="name"/>
+                                    <field name="department_id" />
+                                    <field name="age" required='1'/>
+                            </group>
+                        
+                            <group>
+                                    <field name="image" widget="image"/>
+                            </group>
+
+
+                            <group>
+                                    <field name="manger_de" />
+                                    <field name="gender" widget='radio'/>
+                            </group>
+                        
+                    </group>
+
+                </group>
+            </form>
+        </field>
+    </record>
+
+     <record id="view_doctor_search" model="ir.ui.view">
+        <field name="name">hospital.doctor.search</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="department_id" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hospital_doctor" model="ir.actions.act_window">
+        <field name="name">Hospital Doctor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_hospital_main_menu"
+              name="Hospital"
+              sequence="10"/>
+
+    <menuitem id="menu_hospital_doctor"
+              name="Hospital Doctors"
+              action='action_hospital_doctor'
+              parent="menu_hospital_main_menu"
+              sequence="10"/>
+</odoo>
+
